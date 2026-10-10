@@ -62,7 +62,9 @@ if (widths.length === 0) widths.push(contactImage.width);
 </ModelLayout>
 
 <script>
-  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();

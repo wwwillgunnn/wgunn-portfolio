@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="min-h-screen px-6 text-zinc-900 dark:text-zinc-100">
+    <div class="mx-auto max-w-2xl">
+      <header class="flex min-h-16 items-center justify-between gap-6 border-b border-black/10 dark:border-white/15">
+        <a href="/dev" class="shrink-0 text-sm font-semibold">
+          William Gunn
+        </a>
+        <nav
+          aria-label="Main navigation"
+          class="flex flex-row gap-2 text-sm text-zinc-600 dark:text-zinc-400"
+        >
+          <a
+            class="transition-colors hover:text-foreground"
+            href="/dev/projects"
+          >
+            Projects
+          </a>
+          <a
+            class="transition-colors hover:text-foreground"
+            href="/dev/contact"
+          >
+            Contact
+          </a>
+          <a
+            class="transition-colors hover:text-foreground"
+            href="https://github.com/wwwillgunnn"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+        </nav>
+      </header>
+
+      <main class="pb-20">
+        <slot />
+      </main>
+    </div>
+  </div>
+</BaseLayout>

@@ -14,9 +14,7 @@ import "@fontsource/playfair-display/600.css";
   <div class="relative h-screen w-full overflow-hidden bg-[#05060f] text-white">
     <SpaceScene client:only="react" />
 
-    <header
-      class="pointer-events-none absolute inset-x-0 top-0 flex justify-center p-6 font-playfair"
-    >
+    <header class="pointer-events-none absolute inset-x-0 top-0 flex justify-center p-6 font-playfair">
       <div class="pointer-events-auto">
         <Navbar client:load />
       </div>
@@ -26,12 +24,8 @@ import "@fontsource/playfair-display/600.css";
       class="pointer-events-none absolute inset-x-0 bottom-8 text-center"
       aria-hidden="true"
     >
-      <h1 class="font-playfair text-3xl tracking-wide sm:text-4xl">
-        Explore
-      </h1>
-      <p class="mt-2 text-sm text-white/60">
-        Drag to orbit · scroll to zoom
-      </p>
+      <h1 class="font-playfair text-3xl tracking-wide sm:text-4xl">Explore</h1>
+      <p class="mt-2 text-sm text-white/60">Drag to orbit · scroll to zoom</p>
     </div>
   </div>
 </BaseLayout>

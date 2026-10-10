@@ -39,52 +39,46 @@ const imgClass =
 <div
   class={`relative w-full ${sizeStyles[size]} aspect-3/4 overflow-hidden cursor-pointer`}
 >
-  {
-    variant === "external" && link && (
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        <Image
-          src={image}
-          alt={title}
-          widths={widths}
-          sizes="(max-width: 768px) 100vw, 33vw"
-          class={imgClass}
-          loading="lazy"
-        />
-      </a>
-    )
-  }
-  {
-    variant === "internal" && link && (
-      <a href={link}>
-        <Image
-          src={image}
-          alt={title}
-          widths={widths}
-          sizes="(max-width: 768px) 100vw, 33vw"
-          class={imgClass}
-          loading="lazy"
-        />
-      </a>
-    )
-  }
-  {
-    variant === "modal" && (
-      <button
-        type="button"
-        class="gallery-item block w-full h-full cursor-pointer"
-        data-full={fullSrc}
-        data-alt={title}
-        aria-label={`View ${title}`}
-      >
-        <Image
-          src={image}
-          alt={title}
-          widths={widths}
-          sizes="(max-width: 768px) 100vw, 33vw"
-          class={imgClass}
-          loading="lazy"
-        />
-      </button>
-    )
-  }
+  {variant === "external" && link && (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      <Image
+        src={image}
+        alt={title}
+        widths={widths}
+        sizes="(max-width: 768px) 100vw, 33vw"
+        class={imgClass}
+        loading="lazy"
+      />
+    </a>
+  )}
+  {variant === "internal" && link && (
+    <a href={link}>
+      <Image
+        src={image}
+        alt={title}
+        widths={widths}
+        sizes="(max-width: 768px) 100vw, 33vw"
+        class={imgClass}
+        loading="lazy"
+      />
+    </a>
+  )}
+  {variant === "modal" && (
+    <button
+      type="button"
+      class="gallery-item block w-full h-full cursor-pointer"
+      data-full={fullSrc}
+      data-alt={title}
+      aria-label={`View ${title}`}
+    >
+      <Image
+        src={image}
+        alt={title}
+        widths={widths}
+        sizes="(max-width: 768px) 100vw, 33vw"
+        class={imgClass}
+        loading="lazy"
+      />
+    </button>
+  )}
 </div>

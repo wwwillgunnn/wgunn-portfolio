@@ -12,10 +12,8 @@ interface Props {
   description?: string;
 }
 
-const {
-  title = "William Gunn - Model Portfolio",
-  description = "",
-} = Astro.props;
+const { title = "William Gunn - Model Portfolio", description = "" } =
+  Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
