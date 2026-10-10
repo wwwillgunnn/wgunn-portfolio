@@ -1,0 +1,20 @@
+---
+import Card from "@/components/model/Card.astro";
+import Lightbox from "@/components/model/Lightbox";
+import { galleryImages } from "@/data/galleryData";
+---
+
+<div class="grid grid-cols-3 gap-4">
+  {
+    galleryImages.map((item) => (
+      <Card
+        image={item.image}
+        title={item.title}
+        link={item.link}
+        variant="modal"
+        size="xl"
+      />
+    ))
+  }
+</div>
+<Lightbox client:idle />

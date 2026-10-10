@@ -1,0 +1,21 @@
+---
+import ModelLayout from "@/layouts/ModelLayout.astro";
+import RunwayCard from "@/components/model/RunwayCard.astro";
+import arcoRunwayPose from "@/assets/model/arco/runway-pose.PNG";
+import aviRunwayThumbnail from "@/assets/model/avi/runway-thumbnail.JPEG";
+---
+
+<ModelLayout>
+  <div class="m-20 grid grid-cols-3 gap-4">
+    <RunwayCard
+      image={arcoRunwayPose}
+      title="Arco runway SS26"
+      link="https://www.youtube.com/watch?v=JPxz228KgIQ&list=LL&index=22&t=280s"
+    />
+    <RunwayCard
+      image={aviRunwayThumbnail}
+      title="AVI runway FW25"
+      link="https://www.instagram.com/p/DMZwSEtvTEF/?img_index=10"
+    />
+  </div>
+</ModelLayout>

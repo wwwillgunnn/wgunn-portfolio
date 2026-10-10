@@ -1,0 +1,36 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/model/Navbar";
+import "@fontsource/playfair-display/400.css";
+import "@fontsource/playfair-display/500.css";
+import "@fontsource/playfair-display/600.css";
+import "@fontsource/playfair-display/700.css";
+import InstagramIcon from "@/components/model/Instagram";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "William Gunn - Model Portfolio",
+  description = "",
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="font-playfair antialiased m-20">
+    <header class="flex flex-col gap-3 items-center justify-center mb-10">
+      <h1 class="text-2xl lg:text-7xl">William Gunn</h1>
+      <Navbar client:load />
+      <a
+        href="https://www.instagram.com/wwwillgunnn/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <InstagramIcon />
+      </a>
+    </header>
+    <slot />
+  </main>
+</BaseLayout>

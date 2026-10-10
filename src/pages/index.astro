@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="William Gunn - Portfolio">
+  <main
+    class="flex min-h-screen flex-col items-center justify-center gap-8 p-8 text-center"
+  >
+    <h1 class="text-4xl font-semibold tracking-tight sm:text-6xl">
+      William Gunn
+    </h1>
+    <p class="max-w-md text-lg text-zinc-600 dark:text-zinc-400">
+      A collection of my work, projects, and experiences.
+    </p>
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <a
+        href="/model"
+        class="flex h-12 w-48 items-center justify-center rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+      >
+        Model Portfolio
+      </a>
+      <a
+        href="/explore"
+        class="flex h-12 w-48 items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+      >
+        Explore
+      </a>
+    </div>
+  </main>
+</BaseLayout>

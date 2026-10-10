@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# William Gunn — Portfolio
+
+A portfolio site built with [Astro](https://astro.build), React islands, Tailwind CSS v4, and Three.js.
+
+## Requirements
+
+- Node.js `>=22.12.0`
+- [pnpm](https://pnpm.io) (this project uses `pnpm`; the version is pinned via the `packageManager` field)
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start the local dev server |
+| `pnpm build` | Build the static site to `dist/` |
+| `pnpm preview` | Preview the production build locally |
+| `pnpm check` | Run `astro check` (types + diagnostics) |
+| `pnpm astro` | Run the Astro CLI |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+src/
+├── assets/model/          # Source images (optimized at build by astro:assets)
+├── components/
+│   ├── explore/           # Three.js / React Three Fiber scene
+│   └── model/             # Navbar, Card, Gallery, Lightbox, RunwayCard
+├── data/galleryData.ts    # Model gallery content
+├── layouts/               # BaseLayout + ModelLayout
+├── pages/
+│   ├── index.astro        # Landing
+│   ├── explore.astro      # Interactive 3D space environment
+│   └── model/             # Gallery, runway, compcard, contact
+└── styles/global.css      # Tailwind v4 entry + theme tokens
+public/                    # Static assets served as-is
+```
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The `/model` gallery images live in `src/assets/model` and are imported into
+  `src/data/galleryData.ts`, so Astro can generate optimized WebP variants.
+- React is used only for interactive islands (`Navbar`, `Lightbox`, `SpaceScene`).
+- The `/explore` scene is mounted with `client:only="react"` because WebGL requires
+  the browser environment.

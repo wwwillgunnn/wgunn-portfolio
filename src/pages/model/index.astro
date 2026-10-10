@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import heroBackground from "@/assets/model/hero_background.jpg";
+import "@fontsource/playfair-display/400.css";
+import "@fontsource/playfair-display/500.css";
+import "@fontsource/playfair-display/600.css";
+import "@fontsource/playfair-display/700.css";
+
+const widths = [640, 1080, 1376].filter((w) => w <= heroBackground.width);
+---
+
+<BaseLayout title="William Gunn - Model Portfolio">
+  <section class="relative h-dvh w-full overflow-hidden">
+    <Image
+      src={heroBackground}
+      alt="William Gunn"
+      widths={widths}
+      sizes="100vw"
+      loading="eager"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div
+      class="pointer-events-auto absolute inset-0 flex items-center justify-center"
+    >
+      <a
+        class="font-playfair text-5xl tracking-wide text-white drop-shadow-lg sm:text-7xl lg:text-8xl hover:underline decoration-4"
+        href="/model/portfolio"
+      >
+        William Gunn
+      </a>
+    </div>
+  </section>
+</BaseLayout>
