@@ -4,7 +4,7 @@ import Lightbox from "@/components/model/Lightbox";
 import { galleryImages } from "@/data/galleryData";
 ---
 
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
   {galleryImages.map((item) => (
     <Card
       image={item.image}

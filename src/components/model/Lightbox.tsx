@@ -38,12 +38,15 @@ export default function Lightbox() {
     <div
       className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6"
       onClick={() => setActive(null)}
+      role="dialog"
+      aria-modal="true"
+      aria-label={active.alt}
     >
       <div className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
         <img
           src={active.src}
           alt={active.alt}
-          className="max-h-[90vh] w-auto object-contain"
+          className="block max-h-[90vh] max-w-full w-auto object-contain"
         />
       </div>
     </div>
