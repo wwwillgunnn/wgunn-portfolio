@@ -1,6 +1,8 @@
 ---
 import Experience from "@/components/dev/Experience.astro";
 import DevLayout from "@/layouts/DevLayout.astro";
+import avatar from "@/assets/dev/Ty_Test.png";
+import resumeUrl from "@/assets/dev/resume.pdf?url";
 ---
 
 <DevLayout
@@ -83,7 +85,7 @@ import DevLayout from "@/layouts/DevLayout.astro";
           </a>
 
           <a
-            href="/src/assets/dev/resume.pdf"
+            href={resumeUrl}
             download
             class="flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
           >
@@ -96,7 +98,7 @@ import DevLayout from "@/layouts/DevLayout.astro";
       <!-- TODO: Animate you!!!!! -->
       <div class="flex justify-start md:justify-end">
         <img
-          src="/src/assets/dev/Ty_Test.png"
+          src={avatar.src}
           alt="Mii Avatar"
           class="w-80 h-80 max-w-none object-contain shrink-0"
         />
