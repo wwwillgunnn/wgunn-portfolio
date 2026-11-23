@@ -1,4 +1,5 @@
 ---
+import Experience from "@/components/dev/Experience.astro";
 import DevLayout from "@/layouts/DevLayout.astro";
 ---
 
@@ -6,15 +7,158 @@ import DevLayout from "@/layouts/DevLayout.astro";
   title="William Gunn - Developer"
   description="Software, design, and interactive work by William Gunn."
 >
-  <section class="py-20 sm:py-28">
-    <p class="font-mono text-xs uppercase text-zinc-500 dark:text-zinc-400">
-      Software / Design / Interactive
-    </p>
-    <h1 class="mt-5 max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl">
-      I make apps and call them startups.
-    </h1>
-    <p class="mt-5 max-w-lg text-base leading-7 text-zinc-600 dark:text-zinc-400">
-      A collection of software, design, and interactive work.
-    </p>
+  <section class="py-12 sm:py-10">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-8 sm:gap-0">
+      <!-- Left: Introduction -->
+      <div class="flex flex-col gap-3">
+        <p class="font-mono text-xs uppercase text-zinc-500 dark:text-zinc-400">
+          Full stack engineer
+        </p>
+
+        <h1 class="max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Hey! I'm Will
+        </h1>
+
+        <p class="max-w-lg text-base leading-7 text-zinc-600 dark:text-zinc-400">
+          I make apps and call them startups.
+        </p>
+
+        <!-- Social links -->
+        <div class="flex flex-row items-center gap-4 pt-2">
+          <a
+            href="https://www.linkedin.com/in/william-abeku-gunn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="text-black dark:text-white"
+            >
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z" />
+            </svg>
+          </a>
+
+          <a
+            href="https://github.com/wwwillgunnn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="text-black dark:text-white"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.11.82-.26.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.805 5.624-5.475 5.921.43.372.814 1.103.814 2.222v3.293c0 .32.216.694.825.576A12.003 12.003 0 0 0 24 12c0-6.63-5.37-12-12-12Z"
+              />
+            </svg>
+          </a>
+
+          <a href="mailto:william.abeku.gunn@gmail.com" aria-label="Email">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+            </svg>
+          </a>
+
+          <a
+            href="/src/assets/dev/resume.pdf"
+            download
+            class="flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+          >
+            Resume
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Avatar -->
+      <!-- TODO: Animate you!!!!! -->
+      <div class="flex justify-start md:justify-end">
+        <img
+          src="/src/assets/dev/Ty_Test.png"
+          alt="Mii Avatar"
+          class="w-80 h-80 max-w-none object-contain shrink-0"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO: Get this part functional | Switch between states and active state should be highlighted-->
+  <section class="flex flex-col gap-14 sm:gap-18">
+    <!-- Work -->
+    <section>
+      <div class="p-1 mb-2 grid grid-cols-2 items-stretch rounded-lg border border-solid border-black/8 dark:border-white/[.145]">
+        <button class="h-full rounded-md transition-colors hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]">
+          Work
+        </button>
+
+        <button class="h-full rounded-md transition-colors hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]">
+          Education & Certifications
+        </button>
+      </div>
+      <Experience />
+    </section>
+
+    <!-- TODO: Projects -->
+    <section>
+      <div class="flex flex-row items-center justify-between">
+        <h1 class="mb-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+          Projects
+        </h1>
+        <a
+          href="/dev/projects"
+          class="flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+        >
+          See more
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+          project 1
+        </button>
+
+        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+          project 2
+        </button>
+      </div>
+    </section>
+
+    <!-- TODO: Startup & Agency -->
+    <section>
+      <h1 class="mb-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+        Startup & Agency
+      </h1>
+      <div class="grid grid-cols-2 gap-4">
+        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+          HAPS
+        </button>
+
+        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+          ABEKU
+        </button>
+      </div>
+    </section>
   </section>
 </DevLayout>
