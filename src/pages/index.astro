@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ChromeObject from "@/components/canvasui/ChromeObject";
+import LightRays from "@/components/reactbits/LightRays";
 ---
 
 <BaseLayout title="William Gunn - Portfolio">
@@ -8,13 +9,21 @@ import ChromeObject from "@/components/canvasui/ChromeObject";
     <div
       class="absolute inset-0 z-0 opacity-55 [&_canvas]:block [&_canvas]:h-full [&_canvas]:w-full"
       aria-hidden="true"
-    ></div>
+    >
+      <LightRays
+        client:load
+        raysOrigin="top-center"
+        raysColor="#dbeafe"
+        followMouse={true}
+        style={{}}
+      />
+    </div>
     <div
-      class="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_50%_45%,rgba(10,10,10,0.35)_0%,#0a0a0a_85%)]"
+      class="pointer-events-none absolute inset-0 z-1 bg-[radial-gradient(ellipse_at_50%_45%,rgba(10,10,10,0.35)_0%,#0a0a0a_85%)]"
       aria-hidden="true"
     ></div>
     <div
-      class="grain pointer-events-none absolute inset-0 z-[2] opacity-[0.07] mix-blend-overlay"
+      class="grain pointer-events-none absolute inset-0 z-2 opacity-[0.07] mix-blend-overlay"
       aria-hidden="true"
     ></div>
 
@@ -26,7 +35,7 @@ import ChromeObject from "@/components/canvasui/ChromeObject";
     </p>
 
     <div class="choices relative z-10 mt-4 grid w-full max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
-      <div class="card group relative z-10 flex flex-col items-center gap-3 rounded-[2rem] border border-transparent px-4 pt-4 pb-6 transition-[scale,opacity,background-color,border-color] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.04] hover:border-white/10 hover:bg-[radial-gradient(circle_at_50%_35%,rgba(6,106,255,0.22),transparent_70%)] motion-reduce:transition-none">
+      <div class="card group relative z-10 flex flex-col items-center gap-3 rounded-[2rem] border border-transparent px-4 pt-4 pb-6 transition-[scale,opacity,background-color,border-color] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:scale-[1.04] hover:border-white/10 hover:bg-[radial-gradient(circle_at_50%_35%,rgba(229,231,235,0.16),transparent_70%)] motion-reduce:transition-none">
         <ChromeObject
           client:visible
           src="/renders/Macintosh.png"
@@ -82,7 +91,6 @@ import ChromeObject from "@/components/canvasui/ChromeObject";
     opacity: 0.3;
     scale: 0.94;
   }
-  /* headline entrance */
   @keyframes rise {
     from {
       opacity: 0;
