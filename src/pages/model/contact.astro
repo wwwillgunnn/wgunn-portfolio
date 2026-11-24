@@ -1,20 +1,13 @@
 ---
 import ModelLayout from "@/layouts/ModelLayout.astro";
-import { Image } from "astro:assets";
-import contactImage from "@/assets/model/contact_image.jpg";
-
-const widths = [640, 1080, 1376].filter((w) => w <= contactImage.width);
-if (widths.length === 0) widths.push(contactImage.width);
 ---
 
 <ModelLayout>
   <div class="grid gap-10 md:grid-cols-2 md:items-start">
     <div class="relative w-full overflow-hidden md:h-[50vh]">
-      <Image
-        src={contactImage}
+      <img
+        src="/model/contact_image.jpg"
         alt="William Gunn"
-        widths={widths}
-        sizes="(max-width: 768px) 100vw, 50vw"
         class="h-full w-full object-cover"
         loading="lazy"
       />

@@ -1,17 +1,11 @@
 ---
-import kpmgLogo from "@/assets/dev/companies/kpmg.png";
-import dofLogo from "@/assets/dev/companies/dof.png";
-import yicLogo from "@/assets/dev/companies/yic.png";
-import chartertechLogo from "@/assets/dev/companies/ct.jpg";
-import daffLogo from "@/assets/dev/companies/daff.jpg";
-
 const experiences = [
   {
     company: "KPMG",
     role: "Technology Consultant",
     period: "Feb 2026 - Present",
     location: "Canberra, ACT",
-    logo: kpmgLogo,
+    logo: "/dev/companies/kpmg.png",
     responsibilities: [
       "Reduced manual processing time by 98% through workflow automation.",
       "Delivered scalable client automation solutions through workflow analysis and scripting.",
@@ -24,7 +18,7 @@ const experiences = [
     role: "Service Desk Analyst",
     period: "Sep 2024 - Jan 2026",
     location: "Canberra, ACT",
-    logo: dofLogo,
+    logo: "/dev/companies/dof.png",
     responsibilities: [
       "Resolved 100+ weekly incidents across software, hardware and networking.",
       "Reduced resolution time by 20% through effective incident triaging and prioritisation.",
@@ -37,7 +31,7 @@ const experiences = [
     role: "Software Engineer",
     period: "Aug 2025 - Nov 2025",
     location: "Canberra, ACT",
-    logo: yicLogo,
+    logo: "/dev/companies/yic.png",
     responsibilities: [
       "Developed a Flask web app for real-time IoT monitoring, alerts and device control.",
       "Built a text and voice-enabled chatbot for natural-language device control.",
@@ -49,7 +43,7 @@ const experiences = [
     role: "ICT Intern",
     period: "Jun 2024 - Aug 2024",
     location: "Canberra, ACT",
-    logo: chartertechLogo,
+    logo: "/dev/companies/ct.jpg",
     responsibilities: [
       "Automated payroll leave processing using RPA, reducing manual work and errors.",
       "Designed 200+ test cases to improve system reliability and audit readiness.",
@@ -61,7 +55,7 @@ const experiences = [
     role: "Database Administrator",
     period: "Jan 2024 - Feb 2024",
     location: "Canberra, ACT",
-    logo: daffLogo,
+    logo: "/dev/companies/daff.jpg",
     responsibilities: [
       "Built a web scraper detecting thousands of illicit trading entries.",
       "Improved database performance and data accuracy through dataset optimisation.",
@@ -85,7 +79,7 @@ const experiences = [
         <div class="relative z-10 flex items-start justify-center">
           <div class="flex size-11 shrink-0 items-center justify-center rounded-lg border border-black/[0.08] bg-white p-2 dark:border-white/[0.145] dark:bg-zinc-900 sm:size-12">
             <img
-              src={job.logo.src}
+              src={job.logo}
               alt={`${job.company} logo`}
               class="size-full object-contain"
               loading="lazy"

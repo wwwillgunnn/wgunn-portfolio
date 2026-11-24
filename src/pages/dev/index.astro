@@ -1,12 +1,14 @@
 ---
 import Experience from "@/components/dev/Experience.astro";
 import DevLayout from "@/layouts/DevLayout.astro";
-import avatar from "@/assets/dev/Ty_Test.png";
 import resumeUrl from "@/assets/dev/resume.pdf?url";
+import ProjectCard from "@/components/dev/ProjectCard.astro";
+import SpecialCard from "@/components/dev/SpecialCard.astro";
+import Education from "@/components/dev/Education.astro";
 ---
 
 <DevLayout
-  title="William Gunn - Developer"
+  title="Will Gunn | Developer Portfolio"
   description="Software, design, and interactive work by William Gunn."
 >
   <section class="py-12 sm:py-10">
@@ -87,7 +89,7 @@ import resumeUrl from "@/assets/dev/resume.pdf?url";
           <a
             href={resumeUrl}
             download
-            class="flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+            class="flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
           >
             Resume
           </a>
@@ -98,7 +100,7 @@ import resumeUrl from "@/assets/dev/resume.pdf?url";
       <!-- TODO: Animate you!!!!! -->
       <div class="flex justify-start md:justify-end">
         <img
-          src={avatar.src}
+          src="/dev/Ty_Test.png"
           alt="Mii Avatar"
           class="w-80 h-80 max-w-none object-contain shrink-0"
         />
@@ -106,61 +108,128 @@ import resumeUrl from "@/assets/dev/resume.pdf?url";
     </div>
   </section>
 
-  <!-- TODO: Get this part functional | Switch between states and active state should be highlighted-->
   <section class="flex flex-col gap-14 sm:gap-18">
-    <!-- Work -->
     <section>
-      <div class="p-1 mb-2 grid grid-cols-2 items-stretch rounded-lg border border-solid border-black/8 dark:border-white/[.145]">
-        <button class="h-full rounded-md transition-colors hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]">
+      <div
+        role="group"
+        aria-label="Professional profile"
+        class="p-1 mb-2 grid grid-cols-2 items-stretch rounded-lg border border-solid border-black/8 dark:border-white/[.145]"
+      >
+        <button
+          id="work-tab"
+          type="button"
+          aria-pressed="true"
+          aria-controls="work-panel"
+          data-profile-tab
+          class="h-full rounded-md transition-colors hover:border-transparent hover:bg-black/4 aria-pressed:bg-black/4 dark:hover:bg-[#1a1a1a] dark:aria-pressed:bg-[#1a1a1a]"
+        >
           Work
         </button>
 
-        <button class="h-full rounded-md transition-colors hover:border-transparent hover:bg-black/[.04] dark:hover:bg-[#1a1a1a]">
+        <button
+          id="education-tab"
+          type="button"
+          aria-pressed="false"
+          aria-controls="education-panel"
+          data-profile-tab
+          class="h-full rounded-md transition-colors hover:border-transparent hover:bg-black/4 aria-pressed:bg-black/4 dark:hover:bg-[#1a1a1a] dark:aria-pressed:bg-[#1a1a1a]"
+        >
           Education & Certifications
         </button>
       </div>
-      <Experience />
+      <div id="work-panel" role="region" aria-labelledby="work-tab">
+        <Experience />
+      </div>
+      <div
+        id="education-panel"
+        role="region"
+        aria-labelledby="education-tab"
+        hidden
+      >
+        <Education />
+      </div>
     </section>
 
-    <!-- TODO: Projects -->
+    <!-- Projects & Education -->
     <section>
-      <div class="flex flex-row items-center justify-between">
-        <h1 class="mb-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+      <div class="mb-5 flex flex-row items-center justify-between">
+        <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">
           Projects
         </h1>
         <a
           href="/dev/projects"
-          class="flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+          class="flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
         >
           See more
         </a>
       </div>
 
       <div class="grid grid-cols-2 gap-4">
-        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-          project 1
-        </button>
+        <ProjectCard
+          title="Hamster Match"
+          description="Make a face and see which hamster matches your energy! A real-time facial expression and gesture recognition game."
+          image="/projects/hamster-match.png"
+          link="https://hamster-match.vercel.app"
+          repoLink="https://github.com/wwwillgunnn/hamster-match"
+          badges={["Vite", "React", "MediaPipe"]}
+        />
 
-        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-          project 2
-        </button>
+        <ProjectCard
+          title="Halal Eats"
+          description="A halal food discovery platform paired with a developer SDK, making it easier to discover and share halal restaurants globally!"
+          image="/projects/halal-eats.jpg"
+          link="https://eatinghalal.vercel.app"
+          repoLink="https://github.com/wwwillgunnn/halal-eats"
+          badges={["Next.js", "Hono", "Neon", "Drizzle"]}
+        />
       </div>
     </section>
 
-    <!-- TODO: Startup & Agency -->
+    <!-- Startup & Agency -->
     <section>
       <h1 class="mb-5 text-4xl font-semibold tracking-tight sm:text-5xl">
         Startup & Agency
       </h1>
       <div class="grid grid-cols-2 gap-4">
-        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-          HAPS
-        </button>
-
-        <button class="w-full h-80 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-          ABEKU
-        </button>
+        <SpecialCard
+          title="HAPS"
+          description="One platform for university life, connecting students with the services, resources and tools they need throughout their university journey."
+          image="/projects/haps.jpg"
+          link="https://unihaps.vercel.app"
+          cursorReplacement="/cursors/rocket.svg"
+          darkCursorReplacement="/cursors/rocket-dark.svg"
+        />
+        <SpecialCard
+          title="ABEKU"
+          description="ABEKU is a design agency that makes cool websites :)"
+          image="/projects/abeku.png"
+          link="https://abeku.vercel.app"
+          cursorReplacement="/cursors/star.svg"
+          darkCursorReplacement="/cursors/star-dark.svg"
+        />
       </div>
     </section>
   </section>
 </DevLayout>
+
+<script>
+  const tabs =
+    document.querySelectorAll<HTMLButtonElement>("[data-profile-tab]");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((button) => {
+        const isActive = button === tab;
+        button.setAttribute("aria-pressed", String(isActive));
+
+        const panelId = button.getAttribute("aria-controls");
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (!panel) {
+          throw new Error(`Missing panel for "${button.id}".`);
+        }
+
+        panel.hidden = !isActive;
+      });
+    });
+  });
+</script>

@@ -1,39 +1,169 @@
 ---
+import ProjectCard from "@/components/dev/ProjectCard.astro";
 import DevLayout from "@/layouts/DevLayout.astro";
+
+const projects = [
+  {
+    title: "Hamster Match",
+    description:
+      "Make a face and see which hamster matches your energy! A real-time facial expression and gesture recognition game.",
+    image: "/projects/hamster-match.png",
+    link: "https://hamster-match.vercel.app",
+    repoLink: "https://github.com/wwwillgunnn/hamster-match",
+    badges: ["React", "TypeScript", "MediaPipe"],
+  },
+  {
+    title: "Halal Eats",
+    description:
+      "A halal food discovery platform paired with a developer SDK, making it easier to discover and share halal restaurants globally!",
+    image: "/projects/halal-eats.jpg",
+    link: "https://eatinghalal.vercel.app",
+    repoLink: "https://github.com/wwwillgunnn/halal-eats",
+    badges: ["Next.js", "Hono", "Neon", "Drizzle"],
+  },
+  {
+    title: "GitGovernance",
+    description:
+      "An all-in-one GitHub companion. Paste any repository URL to explore codebase diagrams, graphs, and more.",
+    image: "/projects/gitgovernance.png",
+    link: "/dev/projects/gitgovernance",
+    repoLink: "https://github.com/wwwillgunnn/gitGovernance",
+    badges: ["Vite+", "Typescript"],
+  },
+  {
+    title: "Invasive Species Web Scraper",
+    description:
+      "Monitors online marketplaces for listings of exotic pests, helping identify and report potentially harmful wildlife trading.",
+    image: "/projects/web-scraper.svg",
+    link: "/dev/projects/web-scraper",
+    repoLink: "https://github.com/wwwillgunnn/web-scraper",
+    badges: ["Python", "BeautifulSoup"],
+  },
+  {
+    title: "Cher's Closet",
+    description:
+      "Cher's Closet brought to your browser! match and experiment with outfits in your own digital wardrobe, inspired by Clueless.",
+    image: "/projects/chers-closet.png",
+    link: "/dev/projects/chers-closet",
+    repoLink: "https://github.com/wwwillgunnn/chers-closet",
+    badges: ["Nuxt", "Vue", "Supabase"],
+  },
+  {
+    title: "Little Logic",
+    description:
+      "Ask anything and get simple, easy-to-understand explanations, as if you were five years old.",
+    image: "/projects/little-logic.png",
+    link: "/dev/projects/little-logic",
+    repoLink: "https://github.com/wwwillgunnn/little-logic",
+    badges: ["Vite", "React", "Hono", "Bun"],
+  },
+  {
+    title: "Stack Jack",
+    description:
+      "Feeling lucky? Let the cards decide your next side project. Get dealt a random tech stack then AI to dream up a unique app idea.",
+    image: "/projects/stack-jack.png",
+    link: "/dev/projects/stack-jack",
+    repoLink: "https://github.com/wwwillgunnn/stack-jack",
+    badges: ["SvelteKit"],
+  },
+  {
+    title: "Kikle",
+    description:
+      "Wordle for football! Identify a mystery player from the 2026/27 season in just eight guesses.",
+    image: "/projects/kikle.png",
+    link: "/dev/projects/kikle",
+    repoLink: "https://github.com/wwwillgunnn/kikle",
+    badges: ["Vite", "React", "TailwindCSS"],
+  },
+];
 ---
 
 <DevLayout
-  title="Projects - William Gunn"
+  title="Will Gunn | Projects"
   description="Selected software, design, and interactive projects by William Gunn."
 >
   <section class="py-12 sm:pt-10 sm:pb-0">
     <h1 class="my-4 text-3xl font-semibold tracking-tight">Projects</h1>
 
-    <div class="grid grid-cols-2 gap-4">
-      <button class="w-full h-80 border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-        project 1
-      </button>
-
-      <button class="w-full h-80 border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-        project 2
-      </button>
-
-      <button class="w-full h-80 border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-        project 3
-      </button>
-
-      <button class="w-full h-80 border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
-        project 4
-      </button>
+    <div id="project-grid" class="grid grid-cols-2 auto-rows-fr gap-4">
+      {projects.map((project) => (
+        <div data-project-card>
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            link={project.link}
+            repoLink={project.repoLink}
+            badges={project.badges}
+          />
+        </div>
+      ))}
     </div>
 
     <div class="mt-8 flex flex-row items-center justify-between">
-      <a class="cursor-pointer flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+      <button
+        id="projects-back"
+        type="button"
+        aria-controls="project-grid"
+        disabled
+        class="cursor-pointer flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/4 disabled:cursor-not-allowed disabled:opacity-50 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+      >
         Back
-      </a>
-      <a class="cursor-pointer flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+      </button>
+      <button
+        id="projects-next"
+        type="button"
+        aria-controls="project-grid"
+        disabled={projects.length <= 4}
+        class="cursor-pointer flex items-center justify-center py-1 px-5 rounded-lg border border-solid border-black/8 transition-colors hover:border-transparent hover:bg-black/4 disabled:cursor-not-allowed disabled:opacity-50 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+      >
         Next
-      </a>
+      </button>
     </div>
   </section>
 </DevLayout>
+
+<script>
+  const pageSize = 4;
+  const projectGrid = document.querySelector<HTMLElement>("#project-grid");
+  const backButton =
+    document.querySelector<HTMLButtonElement>("#projects-back");
+  const nextButton =
+    document.querySelector<HTMLButtonElement>("#projects-next");
+
+  if (!projectGrid || !backButton || !nextButton) {
+    throw new Error("Project pagination elements are missing.");
+  }
+
+  const projectCards = Array.from(
+    projectGrid.querySelectorAll<HTMLElement>("[data-project-card]"),
+  );
+  const pageCount = Math.ceil(projectCards.length / pageSize);
+  let currentPage = 0;
+
+  const showCurrentPage = () => {
+    projectCards.forEach((card, index) => {
+      card.hidden =
+        index < currentPage * pageSize || index >= (currentPage + 1) * pageSize;
+    });
+
+    backButton.disabled = currentPage === 0;
+    nextButton.disabled = currentPage >= pageCount - 1;
+  };
+
+  backButton.addEventListener("click", () => {
+    if (currentPage > 0) {
+      currentPage -= 1;
+      showCurrentPage();
+    }
+  });
+
+  nextButton.addEventListener("click", () => {
+    if (currentPage < pageCount - 1) {
+      currentPage += 1;
+      showCurrentPage();
+    }
+  });
+
+  showCurrentPage();
+</script>

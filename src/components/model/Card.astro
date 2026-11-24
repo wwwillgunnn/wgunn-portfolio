@@ -1,9 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
-
 interface Props {
-  image: ImageMetadata;
+  image: string;
   title: string;
   link?: string;
   variant?: "modal" | "internal" | "external";
@@ -19,9 +16,6 @@ const sizeStyles = {
   xl: "max-w-[600px]",
 } as const;
 
-const widths = [400, 800, 1200].filter((w) => w <= image.width);
-if (widths.length === 0) widths.push(image.width);
-
 const imgClass =
   "block w-full h-full object-cover transition-transform duration-500 hover:scale-105";
 ---
@@ -31,11 +25,9 @@ const imgClass =
 >
   {variant === "external" && link && (
     <a href={link} target="_blank" rel="noopener noreferrer">
-      <Image
+      <img
         src={image}
         alt={title}
-        widths={widths}
-        sizes="(max-width: 768px) 100vw, 33vw"
         class={imgClass}
         loading="lazy"
       />
@@ -43,11 +35,9 @@ const imgClass =
   )}
   {variant === "internal" && link && (
     <a href={link}>
-      <Image
+      <img
         src={image}
         alt={title}
-        widths={widths}
-        sizes="(max-width: 768px) 100vw, 33vw"
         class={imgClass}
         loading="lazy"
       />
@@ -57,15 +47,13 @@ const imgClass =
     <button
       type="button"
       class="gallery-item block w-full h-full cursor-pointer border-0 bg-transparent p-0"
-      data-full={image.src}
+      data-full={image}
       data-alt={title}
       aria-label={`View ${title}`}
     >
-      <Image
+      <img
         src={image}
         alt={title}
-        widths={widths}
-        sizes="(max-width: 768px) 100vw, 33vw"
         class={imgClass}
         loading="lazy"
       />
