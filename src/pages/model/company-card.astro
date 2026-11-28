@@ -1,7 +1,56 @@
 ---
+import Card from "@/components/model/Card.astro";
 import ModelLayout from "@/layouts/ModelLayout.astro";
+
+const digitalImages = [
+  {
+    image: "/model/digitals/wg_front.jpg",
+    title: "Front Shot",
+    link: "",
+  },
+  {
+    image: "/model/digitals/wg_angle.jpg",
+    title: "3 quarters Shot",
+    link: "",
+  },
+  {
+    image: "/model/digitals/wg_side.jpg",
+    title: "Side Shot",
+    link: "",
+  },
+  {
+    image: "/model/digitals/wg_front_mid.jpg",
+    title: "Front Shot Mid length",
+    link: "",
+  },
+  {
+    image: "/model/digitals/wg_angle_mid.jpg",
+    title: "3 quarters Shot Mid length",
+    link: "",
+  },
+  {
+    image: "/model/digitals/wg_side_mid.jpg",
+    title: "Side Shot Mid length",
+    link: "",
+  },
+];
 ---
 
 <ModelLayout>
-  <div class="bg-amber-50 h-200 w-full"></div>
+  <img
+    src="/model/digitals/compcard.png"
+    alt="Company Card"
+    class="w-full h-auto"
+  />
+  <div class="mt-20 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {digitalImages.map((item) => (
+      <Card
+        image={item.image}
+        title={item.title}
+        link={item.link}
+        variant="modal"
+        size="xl"
+      />
+    ))}
+  </div>
 </ModelLayout>
